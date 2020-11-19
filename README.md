@@ -34,7 +34,12 @@ in `deploy.rb`
 
 These are the settings you can set:
 
-    set :whenever_name # default: "#{application_name}_#{rails_env}"
+    set :rails_env, 'production'
+    set :whenever_name # default: "#{fetch(:application_name)}_#{fetch(:rails_env)}"
+    set :whenever_environment, fetch(:rails_env)
+    set :whenever_variables, -> do
+      "'environment=#{fetch(:whenever_environment)}&rbenv_root=#{fetch(:rbenv_path)}'"
+    end
 
 ## Contributing
 
