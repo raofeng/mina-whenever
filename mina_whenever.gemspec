@@ -4,14 +4,14 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'mina/whenever/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "mina-whenever"
+  spec.name          = "mina_whenever"
   spec.version       = Mina::Whenever::VERSION
-  spec.authors       = ["Stjepan Hadjic"]
-  spec.email         = ["d4be4st@gmail.com"]
+  spec.authors       = ["Ray Rao"]
+  spec.email         = ["raofeng@live.com"]
 
   spec.summary       = %q{Mina plugin for whenever}
   spec.description   = %q{Mina plugin for whenever}
-  spec.homepage      = "https://github.com/mina-deploy/mina-whenever"
+  spec.homepage      = "https://github.com/raofeng/mina-whenever"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
