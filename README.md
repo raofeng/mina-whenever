@@ -7,7 +7,7 @@ This is a whenever plugin for [mina](https://github.com/mina-deploy/mina)
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'mina-whenever-env'
+gem 'mina-whenever-env', '~> 1.0', '>= 1.0.5', require: false
 ```
 
 And then execute:
