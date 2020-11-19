@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'mina/whenever/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "mina_whenever"
+  spec.name          = "mina-whenever-env"
   spec.version       = Mina::Whenever::VERSION
   spec.authors       = ["Ray Rao"]
   spec.email         = ["raofeng@live.com"]

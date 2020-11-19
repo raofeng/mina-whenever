@@ -7,7 +7,7 @@ This is a whenever plugin for [mina](https://github.com/mina-deploy/mina)
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'mina-whenever'
+gem 'mina-whenever-env'
 ```
 
 And then execute:
@@ -16,7 +16,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install mina-whenever
+    $ gem install mina-whenever-env
 
 ## Usage
 
@@ -24,12 +24,9 @@ in `deploy.rb`
 
     require 'mina/whenever'
 
-    task deploy: :environment do
+    task :deploy do
       deploy do
-        ...
-        on :launch do
-          invoke :'whenever:update'
-        end
+        invoke :'whenever:update'
       end
     end
 
@@ -37,7 +34,7 @@ in `deploy.rb`
 
 These are the settings you can set:
 
-    set :whenever_name # default: "#{domain}_#{rails_env}"
+    set :whenever_name # default: "#{application_name}_#{rails_env}"
 
 ## Contributing
 
