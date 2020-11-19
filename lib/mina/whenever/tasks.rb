@@ -1,3 +1,5 @@
+set :whenever_environment_variable, -> { fetch(:environment_variable) || 'RAILS_ENV' }
+set :whenever_environment, -> { fetch(fetch(:environment_variable).downcase.to_sym) }
 set :whenever_name, -> { "#{fetch(:application_name)}_#{fetch(:rails_env)}" }
 
 namespace :whenever do
@@ -5,7 +7,7 @@ namespace :whenever do
   task clear: :remote_environment do
     comment "Clear contrab for #{fetch(:whenever_name)}"
     in_path fetch(:current_path) do
-      command "#{fetch(:bundle_bin)} exec whenever --clear-crontab #{fetch(:whenever_name)} --set 'environment=#{fetch(:rails_env)}&path=#{fetch(:current_path)}'"
+      command "#{fetch(:whenever_environment_variable)}=#{fetch(:rails_env)} #{fetch(:bundle_bin)} exec whenever --clear-crontab #{fetch(:whenever_name)}"
     end
   end
 
@@ -13,7 +15,7 @@ namespace :whenever do
   task update: :remote_environment do
     comment "Update crontab for #{fetch(:whenever_name)}"
     in_path fetch(:current_path) do
-      command "#{fetch(:bundle_bin)} exec whenever --update-crontab #{fetch(:whenever_name)} --set 'environment=#{fetch(:rails_env)}&path=#{fetch(:current_path)}'"
+      command "#{fetch(:whenever_environment_variable)}=#{fetch(:rails_env)} #{fetch(:bundle_bin)} exec whenever --update-crontab #{fetch(:whenever_name)}"
     end
   end
 
@@ -21,7 +23,7 @@ namespace :whenever do
   task write: :remote_environment do
     comment "Write crontab for #{fetch(:whenever_name)}"
     in_path fetch(:current_path) do
-      command "#{fetch(:bundle_bin)} exec whenever --write-crontab #{fetch(:whenever_name)} --set 'environment=#{fetch(:rails_env)}&path=#{fetch(:current_path)}'"
+      command "#{fetch(:whenever_environment_variable)}=#{fetch(:rails_env)} #{fetch(:bundle_bin)} exec whenever --write-crontab #{fetch(:whenever_name)}"
     end
   end
 end
