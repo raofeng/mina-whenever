@@ -1,5 +1,3 @@
-set :whenever_environment_variable, -> { fetch(:environment_variable) || 'RAILS_ENV' }
-set :whenever_environment, -> { fetch(fetch(:environment_variable).downcase.to_sym) }
 set :whenever_name, -> { "#{fetch(:application_name)}_#{fetch(:rails_env)}" }
 
 namespace :whenever do
